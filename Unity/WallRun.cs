@@ -48,6 +48,19 @@ void WallRunControl() {
       StopWallRun();
     }
 
-    if(Input.GetKeyDown(KeyCode.
+    if(Input.GetKeyDown(KeyCode.Space)) {
+      JumpOffWall();
+    }
   }
+}
+void StartWallRun() {
+  isWallRunning = true;
+  wallRunStartTime = Time.time;
+}
+void StopWallRun() {
+  isWallRunning = false;
+}
+void JumpOffWall() {
+  rb.AddForce(Vector3.up * wallRunJumpForce, ForceMode.Impuse);
+  StopWallRun();
 }
